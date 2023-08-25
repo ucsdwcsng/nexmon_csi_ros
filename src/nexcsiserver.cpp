@@ -573,11 +573,11 @@ std::string reconfigure(){
     //reset iface
   if(ch >= 32){
       iface = "eth6";
-	  tx_nss = 4;
+	  tx_nss = tx_nss > 4 ? 4 : tx_nss;
   }
   else{
       iface = "eth5";
-	  tx_nss = 3;
+	  tx_nss = tx_nss > 3 ? 3 : tx_nss;
   }
 
     
@@ -611,12 +611,14 @@ void setup_params(ros::NodeHandle& nh){
   ch = (int)tmp_ch;
   bw = (int)tmp_bw;
   nh.param<double>("beacon_rate", beacon, 200.0);
+  nh.param<int>("beacon_tx_nss", tx_nss, 4);
   nh.param<bool>("tcp_forward", use_tcp, false);
   nh.param<std::string>("asus_ip", rx_ip, "");
   nh.param<std::string>("asus_pwd", rx_pass, "password");
   nh.param<std::string>("asus_host", rx_host, "HOST");
   nh.param<bool>("no_config", no_config, false);
   nh.param<std::string>("lock_topic", lock_topic, "");
+  
 
   //MAC filter param
   std::string mac_filter_temp;
