@@ -72,11 +72,6 @@ const uint32_t i_sign_mask = (1<<17);
 const uint32_t count_mask = (1<<10);
 const uint32_t mant_mask = (1<<10)-1;
 
-//holds the remote client's ssh process so we can shut it down properly
-FILE* cli_fp = NULL;
-//same for the TX process
-FILE* tx_fp = NULL;
-
 class csi_instance
 {
 public:
@@ -131,13 +126,18 @@ void publish_csi(std::vector<csi_instance> &channel_current);
 void handle_shutdown(int sig);
 
 //update CSI filter settings on asus
-std::string reconfigure();
+std::string reset_nexmon();
+
+void setup_asus_connection();
+
+void setup_beacon();
 
 void setup_tcpdump(std::string hostIP);
 
 bool set_chanspec(int s_chan, int s_bw);
 
 bool set_mac_filter(std::vector<int> filt);
+
 bool set_mac_filter(const uint8_t* mac);
 
 bool config_csi_callback(wiros_csi_node::ConfigureCSI::Request &req, wiros_csi_node::ConfigureCSI::Response &resp);

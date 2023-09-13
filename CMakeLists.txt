@@ -141,9 +141,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(csi_node src/nexcsiserver.cpp)
-add_executable(ap_scanner src/apscanner.cpp)
-#add_executable(bearing_sensor src/utils.cpp src/bearing_sensor.cpp include/channels.h)
+add_executable(csi_node src/csi_node.cpp)
+add_executable(ap_scanner src/ap_scanner.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

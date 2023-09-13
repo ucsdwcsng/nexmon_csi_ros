@@ -22,7 +22,7 @@
 
 <!--       beacon rate in ms -->
 
-      <param name="beacon_rate" type="double" value="20"   />
+      <param name="beacon_period" type="double" value="20"   />
 
       <param name="asus_pwd" type="string" value="robot123!" />
     </node>

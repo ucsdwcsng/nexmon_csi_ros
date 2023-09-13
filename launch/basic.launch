@@ -16,12 +16,12 @@
     <!-- PACKET PARAMS -->
     <!-- <rosparam param="mac_filter"> "11:11:11:*:*:*" </rosparam> -->
     
-    <!-- beacon rate in ms; with mac address 11:11:11:
+    <!-- beacon period in ms; with mac address 11:11:11:
                                             "first byte of hostname":
                                             "second byte of hostname":
                                             "last byte of ip4"
          if set to 0, then the AP does not transmit any packets -->
-    <param name="beacon_rate"       type="double"       value="0"   />
+    <param name="beacon_period"       type="double"       value="0"   />
     <!-- number of TX spatial streams. maxes out at 4 for 5GHz and 3 for 2.4GHz -->
     <param name="beacon_tx_nss"     type="int"          value="4"   />
     
